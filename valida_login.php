@@ -9,25 +9,25 @@
     $usuarios__app = [
         [
             'email' => 'adm@teste.com.br',
-            'senha' => '1',
+            'senha' => '1234',
             'id' => '1',
             'perfil_id' => 1
         ],
         [
             'email' => 'user@teste.com.br',
-            'senha' => '1',
+            'senha' => '9876',
             'id' => '2',
             'perfil_id' => 1
         ],
         [
             'email' => 'jose@teste.com.br',
-            'senha' => '1',
+            'senha' => 'abcd',
             'id' => '3',
             'perfil_id' => 2
         ],
         [
             'email' => 'maria@teste.com.br',
-            'senha' => '1',
+            'senha' => 'dcba',
             'id' => '4',
             'perfil_id' => 2
         ]
