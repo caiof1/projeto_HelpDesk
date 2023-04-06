@@ -20,5 +20,5 @@
     // Fechando o arquivo
     fclose($arquivo);
 
-    // header('Location: abrir_chamado.php');
+    header('Location: abrir_chamado.php');
 ?>
