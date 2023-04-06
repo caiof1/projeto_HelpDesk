@@ -43,14 +43,15 @@
             <div class="card-header">
               Consulta de chamado
             </div>
-            
             <div class="card-body">
               <?php 
-                foreach($chamados as $chamado) { 
+
+                if(strlen($chamados[0]) > 0) {
+                  foreach($chamados as $chamado) { 
                     $registro_chamado = explode('#', $chamado);              
 
                     if($_SESSION['perfil_id'] == 2) {
-                      if($_SESSION['id'] != $registro_chamado[0]) {
+                      if($_SESSION['id'] != $registro_chamado[3]) {
                         continue;
                       }
                     }
@@ -58,17 +59,23 @@
                     if(count($registro_chamado) < 4) {
                       continue; 
                     }
+                
               ?>
                     <div class="card mb-3 bg-light">
                       <div class="card-body">
-                        <h5 class="card-title"><?= $registro_chamado[1] ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><?= $registro_chamado[2] ?></h6>
-                        <p class="card-text"><?= $registro_chamado[3] ?></p>
+                        <h5 class="card-title"><?= $registro_chamado[0] ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?= $registro_chamado[1] ?></h6>
+                        <p class="card-text"><?= $registro_chamado[2] ?></p>
                       </div>
                     </div>
               <?php 
-                } 
+                  }
+                } else {
               ?>  
+                <div class="ml-5">
+                  <span>Nenhum chamado foi aberto!</span>
+                </div>
+              <?php } ?>
               
               <div class="row mt-5">
                 <div class="col-6">

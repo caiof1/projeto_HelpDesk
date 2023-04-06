@@ -8,10 +8,11 @@
     $titulo = str_replace('#', '-',$_POST['titulo']);
     $categoria = str_replace('#', '-',$_POST['categoria']);
     $descricao = str_replace('#', '-',$_POST['descricao']);
-
+    $id = $_SESSION['id'];
     // Juntando a array em uma string com separadores #
-    $texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
+    $texto = $titulo . '#' . $categoria . '#' . $descricao . '#' . $id . PHP_EOL;
     
+    echo $texto;
     // Abrindo um arquivo 
     $arquivo = fopen('arquivo.hd', 'a');
     // Escrevendo no arquivo aberto
@@ -19,5 +20,5 @@
     // Fechando o arquivo
     fclose($arquivo);
 
-    header('Location: abrir_chamado.php');
+    // header('Location: abrir_chamado.php');
 ?>

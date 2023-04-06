@@ -68,6 +68,23 @@
                 <?php } ?>
                 <!-- Fim das mensagem informando que o user deve logar antes de acessar determinadas paginas -->
 
+                <!-- Mensagem informando que o cadastro foi realizado com sucesso-->
+                <?php
+
+                  if(isset($_GET['cadastro']) && $_GET['cadastro'] == 'sucess') {
+                    
+                ?>
+                  <div id="cadastro-realizado" class="text-success text-center mb-3">
+                    Cadastro realizado com sucesso
+                  </div>
+                  <script>
+                    setTimeout(() => {
+                      document.getElementById('cadastro-realizado').style.display = 'none';
+                    }, 2000);
+                  </script>
+                <?php } ?>
+                <!-- Fim das Mensagem informando que o cadastro foi realizado com sucesso -->
+
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
             </div>

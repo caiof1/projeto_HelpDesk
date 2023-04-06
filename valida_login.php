@@ -6,49 +6,33 @@
     $usuario_id = null;
     $perfil_id = null;
 
-    $usuarios__app = [
-        [
-            'email' => 'adm@teste.com.br',
-            'senha' => '1234',
-            'id' => '1',
-            'perfil_id' => 1
-        ],
-        [
-            'email' => 'user@teste.com.br',
-            'senha' => '9876',
-            'id' => '2',
-            'perfil_id' => 1
-        ],
-        [
-            'email' => 'jose@teste.com.br',
-            'senha' => 'abcd',
-            'id' => '3',
-            'perfil_id' => 2
-        ],
-        [
-            'email' => 'maria@teste.com.br',
-            'senha' => 'dcba',
-            'id' => '4',
-            'perfil_id' => 2
-        ]
-    ];
+    $usuarios__app = [];
+    
+    // Abrindo arquivo users
+    $users_arquivo = fopen('users.txt', 'r');
 
-    foreach ($usuarios__app as $user) {
-        if($_POST['email'] == $user['email'] && $_POST['senha'] == $user['senha']) {
+    while(!feof($users_arquivo)) {
+        $usuarios__app[] = fgets($users_arquivo);
+    }
+    // Fechando arquivo users
+    fclose($users_arquivo);
+    foreach($usuarios__app as $user) {
+        $user_atual = explode('#', $user);
+        if($_POST['email'] == $user_atual[0] && $_POST['senha'] == $user_atual['1']) {
             $user_autenticado = true;
-            $usuario_id = $user['id'];
-            $perfil_id = $user['perfil_id'];
+            $usuario_id = $user_atual[3];
+            $perfil_id = $user_atual[4];
         }
     }
 
     if($user_autenticado) {
-        header('Location: home.php');
         $_SESSION['autenticado'] = 'SIM';
         $_SESSION['id'] = $usuario_id;
         $_SESSION['perfil_id'] = $perfil_id;
+        header('Location: home.php');
     } else {
-        header('Location: index.php?login=erro');
         $_SESSION['autenticado'] = 'NAO';
+        header('Location: index.php?login=erro'); 
     }
 
 ?>
