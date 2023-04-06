@@ -7,6 +7,18 @@
 
   while(!feof($arquivo)) {
     $registro = fgets($arquivo);
+    $registro_chamado = explode('#', $registro);   
+    if($_SESSION['perfil_id'] == 2) {
+      if(isset($registro_chamado[3]) && ($_SESSION['id'] != $registro_chamado[3])) {
+        continue;
+      }
+    }
+
+    if(count($registro_chamado) < 4) {
+      continue; 
+    }
+
+    
     $chamados[] = $registro;
   }
 
@@ -46,19 +58,11 @@
             <div class="card-body">
               <?php 
 
-                if(strlen($chamados[0]) > 0) {
+                if(isset($chamados[0]) && strlen($chamados[0]) > 0) {
                   foreach($chamados as $chamado) { 
                     $registro_chamado = explode('#', $chamado);              
 
-                    if($_SESSION['perfil_id'] == 2) {
-                      if($_SESSION['id'] != $registro_chamado[3]) {
-                        continue;
-                      }
-                    }
-
-                    if(count($registro_chamado) < 4) {
-                      continue; 
-                    }
+                    
                 
               ?>
                     <div class="card mb-3 bg-light">

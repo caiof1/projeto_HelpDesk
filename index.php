@@ -86,6 +86,9 @@
                 <!-- Fim das Mensagem informando que o cadastro foi realizado com sucesso -->
 
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
+                <div class="text-center mt-4">
+                  <a href="cadastro.php">Não possue cadastro? Faça agora mesmo</a>
+                </div>
               </form>
             </div>
           </div>

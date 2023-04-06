@@ -18,10 +18,10 @@
     fclose($users_arquivo);
     foreach($usuarios__app as $user) {
         $user_atual = explode('#', $user);
-        if($_POST['email'] == $user_atual[0] && $_POST['senha'] == $user_atual['1']) {
+        if($_POST['email'] == $user_atual[0] && $_POST['senha'] == $user_atual[1]) {
             $user_autenticado = true;
-            $usuario_id = $user_atual[3];
-            $perfil_id = $user_atual[4];
+            $usuario_id = $user_atual[2];
+            $perfil_id = $user_atual[3];
         }
     }
 

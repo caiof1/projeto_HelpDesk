@@ -58,6 +58,9 @@
                     </div>
                 <?php } ?>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Cadastrar</button>
+                <div class="text-center mt-4">
+                  <a href="index.php">Já possue cadastro? Faça login aqui!</a>
+                </div>
               </form>
             </div>
           </div>
